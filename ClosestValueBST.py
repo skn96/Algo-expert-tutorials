@@ -1,7 +1,7 @@
 from CreatingBST import *
 
 def findClosestValueBST(target, tree): 
-    closest = findClosestValueHelperBST(target, tree, float("inf"))
+    closest = findClosestValueHelperBST_Iterative(target, tree, float("inf"))
     return closest
 
 def findClosestValueHelperBST(target, tree, closest):
@@ -28,6 +28,26 @@ def findClosestValueHelperBST(target, tree, closest):
         return findClosestValueHelperBST(target, tree.left, closest)
     else: 
         return closest
+
+
+## Doing it iteratively
+def findClosestValueHelperBST_Iterative(target, tree, closest):
+
+    currentNode = tree
+
+    while currentNode is not None: 
+
+        if abs(currentNode.value - target) < abs(closest - target):
+            closest = currentNode.value
+
+        if currentNode.value < target:
+            currentNode = currentNode.right
+        elif currentNode.value > target:
+            currentNode = currentNode.left
+        else:
+            break
+    
+    return closest
 
 
 my_bst = BST()
