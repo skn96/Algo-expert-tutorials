@@ -1,3 +1,6 @@
+# T ; O(V+E)
+# S : O(V)
+
 class Node: 
     def __init__(self, name):
         self.children = []
