@@ -10,7 +10,6 @@ class treeInfo:
         self.height = height 
 
 def treeDiameter(tree):
-    tree_info = treeInfo(0, 0)
     return treeDiameter_helper(tree).diameter
 
 def treeDiameter_helper(tree):
